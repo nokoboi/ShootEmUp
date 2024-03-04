@@ -35,7 +35,7 @@ namespace Shmup
         {
             targetPosition += new Vector3 (input.Move.x, input.Move.y, 0f) * (speed * Time.deltaTime);
 
-            // Calculamos el minimo y maximas posiciones de X e Y para el jugador basadas en la vision de la camara
+            // Calculamos la posicion maxima de X e Y para el jugador basadas en la vision de la camara
             var minPlayerX = cameraFollow.transform.position.x + minX;
             var maxPlayerX = cameraFollow.transform.position.x + maxX;
             var minPlayerY = cameraFollow.transform.position.y + minY;
