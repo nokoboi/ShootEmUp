@@ -19,14 +19,14 @@ namespace Shmup
             if (!limiteMonedas && Input.GetKeyDown(KeyCode.Space))
             {
 
-                if(GameManager.instance.monedas < 3)
+                if(GameManager.instance.monedas < 2)
                 {
                     // Llamar al método AgregarMonedas del GameManager para agregar una moneda
                     GameManager.instance.AgregarMonedas(1);
                 }
 
-                // Para que pare una vez tenga 3 monedas y aunque siga pulsando espacio no siga sumando monedas
-                if (GameManager.instance.monedas >= 3)
+                // Para que pare una vez tenga 2 monedas y aunque siga pulsando espacio no siga sumando monedas
+                if (GameManager.instance.monedas >= 2)
                 {
                     limiteMonedas = true;
                 }
@@ -36,11 +36,11 @@ namespace Shmup
             {
                 textoMoneda1.fontSize = 24;
                 textoMoneda2.fontSize = 24;
-                textoMoneda1.text = "Tienes " + GameManager.instance.monedas + " monedas. Pulsa cualquier boton para continuar.";
-                textoMoneda2.text = "Tienes " + GameManager.instance.monedas + " monedas. Pulsa cualquier boton para continuar.";
+                textoMoneda1.text = "Tienes " + GameManager.instance.monedas + " monedas. Pulsa boton 1P para continuar.";
+                textoMoneda2.text = "Tienes " + GameManager.instance.monedas + " monedas. Pulsa boton 1P para continuar.";
             }
 
-            if (GameManager.instance.monedas >= 3)
+            if (GameManager.instance.monedas >= 2)
             {
                 textoMoneda1.gameObject.SetActive(false);
                 textoMoneda2.gameObject.SetActive(false);
