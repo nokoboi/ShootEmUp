@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 604176056}
   - component: {fileID: 604176055}
   - component: {fileID: 604176054}
+  - component: {fileID: 604176057}
   m_Layer: 5
   m_Name: Jugador1
   m_TagString: Untagged
@@ -595,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -676,6 +677,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604176052}
   m_CullTransparentMesh: 1
+--- !u!114 &604176057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604176052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8661482e5e3b436429c91203d1e998f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boton: {fileID: 604176054}
+  texto: {fileID: 898357593}
+  textoSombra: {fileID: 858943010}
 --- !u!1 &684188411
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 748129435}
+  - component: {fileID: 748129436}
   m_Layer: 5
   m_Name: MenuSeleccion
   m_TagString: Untagged
@@ -862,6 +879,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -58}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &748129436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748129434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58d7786aaf7f734b9b9829848e7f25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayButtons:
+  - {fileID: 604176054}
+  - {fileID: 1430176044}
+  - {fileID: 1100483341}
 --- !u!1 &845066587
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 49}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &845066589
@@ -1211,6 +1244,7 @@ GameObject:
   - component: {fileID: 1100483343}
   - component: {fileID: 1100483342}
   - component: {fileID: 1100483341}
+  - component: {fileID: 1100483344}
   m_Layer: 5
   m_Name: Creditos
   m_TagString: Untagged
@@ -1252,7 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1321,6 +1355,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100483339}
   m_CullTransparentMesh: 1
+--- !u!114 &1100483344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100483339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8661482e5e3b436429c91203d1e998f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boton: {fileID: 1100483341}
+  texto: {fileID: 123550269}
+  textoSombra: {fileID: 151640573}
 --- !u!1 &1200599647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,6 +1726,7 @@ GameObject:
   - component: {fileID: 1430176046}
   - component: {fileID: 1430176045}
   - component: {fileID: 1430176044}
+  - component: {fileID: 1430176047}
   m_Layer: 5
   m_Name: Jugador2
   m_TagString: Untagged
@@ -1718,7 +1768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1787,6 +1837,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430176042}
   m_CullTransparentMesh: 1
+--- !u!114 &1430176047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430176042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8661482e5e3b436429c91203d1e998f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boton: {fileID: 1430176044}
+  texto: {fileID: 1343621972}
+  textoSombra: {fileID: 1253754724}
 --- !u!1 &1502668794
 GameObject:
   m_ObjectHideFlags: 0
