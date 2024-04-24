@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Shmup
@@ -13,13 +15,27 @@ namespace Shmup
         public GameObject menuSeleccion;
 
         public bool limiteMonedas;
-        private void Update()
+
+        [SerializeField]
+        private InputActionReference moneda;
+
+        private void OnEnable()
+        {
+            moneda.action.performed += SumarMoneda;
+        }
+
+        private void OnDisable()
+        {
+            moneda.action.performed -= SumarMoneda;
+        }
+
+        private void SumarMoneda(InputAction.CallbackContext context)
         {
             // Detectar si se presiona la barra espaciadora
-            if (!limiteMonedas && Input.GetKeyDown(KeyCode.Space))
+            if (!limiteMonedas/* && Input.GetKeyDown(KeyCode.Space)*/)
             {
 
-                if(GameManager.instance.monedas < 2)
+                if (GameManager.instance.monedas < 2)
                 {
                     // Llamar al método AgregarMonedas del GameManager para agregar una moneda
                     GameManager.instance.AgregarMonedas(1);
@@ -32,6 +48,12 @@ namespace Shmup
                 }
 
             }
+        }
+
+        private void Update()
+        {
+
+            
             if (GameManager.instance.monedas > 0)
             {
                 textoMoneda1.fontSize = 24;
