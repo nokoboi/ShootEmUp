@@ -51,20 +51,6 @@ namespace Shmup
             bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
 
             Destroy(bullet, 1);
-
-            //// Establece la velocidad de la bala en el eje Y a cero para evitar que caiga
-            //Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-            //if (bulletRigidbody != null)
-            //{
-            //    bulletRigidbody.velocity = new Vector3(bulletRigidbody.velocity.x, 0f, bulletRigidbody.velocity.z);
-            //}
-
-            //// Mueve la bala directamente en la dirección deseada
-            //bullet.transform.Translate(transform.forward * bulletSpeed * Time.deltaTime, Space.World);
-
-
-
-
         }
 
         private void Start()
