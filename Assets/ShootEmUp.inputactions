@@ -265,6 +265,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4d2c1d00-e5dd-46ff-8614-3dc00cd528ef",
+                    "path": "<Joystick>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7e75859f-217c-4a42-ae96-603d35836845",
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button5",
                     "interactions": "",

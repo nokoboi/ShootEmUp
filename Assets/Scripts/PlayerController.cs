@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Shmup
 {
@@ -20,11 +23,49 @@ namespace Shmup
         [SerializeField] float minY = -4f;
         [SerializeField] float maxY = 4f;
 
+        [SerializeField] GameObject bulletPrefab;
+        [SerializeField] float bulletSpeed = 10f;
+
         InputReader input;
 
         Vector3 currentVelocity;
         Vector3 targetPosition;
-        
+
+        [SerializeField]
+        private InputActionReference shoot;
+
+
+        private void OnEnable()
+        {
+            shoot.action.performed += Disparar;
+        }
+
+        private void OnDisable()
+        {
+            shoot.action.performed -= Disparar;
+        }
+
+        private void Disparar(InputAction.CallbackContext context)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
+
+            Destroy(bullet, 1);
+
+            //// Establece la velocidad de la bala en el eje Y a cero para evitar que caiga
+            //Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+            //if (bulletRigidbody != null)
+            //{
+            //    bulletRigidbody.velocity = new Vector3(bulletRigidbody.velocity.x, 0f, bulletRigidbody.velocity.z);
+            //}
+
+            //// Mueve la bala directamente en la dirección deseada
+            //bullet.transform.Translate(transform.forward * bulletSpeed * Time.deltaTime, Space.World);
+
+
+
+
+        }
 
         private void Start()
         {
