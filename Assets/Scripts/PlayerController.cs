@@ -32,8 +32,9 @@ namespace Shmup
         Vector3 currentVelocity;
         Vector3 targetPosition;
 
-        [SerializeField]
-        private InputActionReference shoot;
+
+        [SerializeField] private InputActionReference shoot;
+        [SerializeField] private InputActionReference move;
 
         //Eleccion Sprite Avion
         public GameObject spriteAvion;
@@ -51,10 +52,13 @@ namespace Shmup
 
         private void Disparar(InputAction.CallbackContext context)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
-
-            Destroy(bullet, 1);
+            if (!context.ToString().Contains("Joystick  1"))
+            {
+                GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
+                //Debug.Log("Contexto: " + context.ToString());
+                Destroy(bullet, 1);
+            }
         }
 
         private void Start()
@@ -68,8 +72,12 @@ namespace Shmup
 
         private void Update()
         {
-            targetPosition += new Vector3 (input.Move.x, input.Move.y, 0f) * (speed * Time.deltaTime);
+            if (!move.action.ToString().Contains("Joystick  1"))
+            {
+                targetPosition += new Vector3(input.Move.x, input.Move.y, 0f) * (speed * Time.deltaTime);
 
+                
+            }
             // Calculamos la posicion maxima de X e Y para el jugador basadas en la vision de la camara
             var minPlayerX = cameraFollow.transform.position.x + minX;
             var maxPlayerX = cameraFollow.transform.position.x + maxX;
@@ -91,6 +99,10 @@ namespace Shmup
 
             // Aplicar la rotacion
             transform.localEulerAngles = new Vector3(0f, newYRotation, 0f);
+            //var action = new InputAction();
+
+            //Debug.Log("Mueve: " + action.actionMap.ToString());
+
 
         }
 

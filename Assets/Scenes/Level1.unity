@@ -388,7 +388,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5886960979180665400, guid: c7d3c4e0480e04742aa55c2ffa758b9b, type: 3}
   bulletSpeed: 10000
   shoot: {fileID: 3551292198275945314, guid: ac2541fdc1ccf044c866c16ef35a66f1, type: 3}
+<<<<<<< HEAD
   spriteAvion: {fileID: 465233604}
+=======
+  move: {fileID: -1173147685029929387, guid: ac2541fdc1ccf044c866c16ef35a66f1, type: 3}
+>>>>>>> 94024f2110ddd8be1f78c296891102ad89424e26
 --- !u!114 &295124219
 MonoBehaviour:
   m_ObjectHideFlags: 0
