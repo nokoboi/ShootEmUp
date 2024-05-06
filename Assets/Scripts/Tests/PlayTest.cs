@@ -27,6 +27,8 @@ namespace TestSpace
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
+
+        //Test simple para comprobar que está el jugador activo.
         [UnityTest]
         public IEnumerator PlayerExists()
         {
@@ -38,6 +40,7 @@ namespace TestSpace
 
         [UnityTest]
         
+        //Test para comprobar que funciona el método de disparar.
         public IEnumerator BulletTest()
         {
             yield return new WaitForSeconds(2f);
