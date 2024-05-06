@@ -13,6 +13,7 @@ namespace Shmup
         [SerializeField] float smoothness = 0.1f;
         [SerializeField] float leanAngle = 15f;
         [SerializeField] float leanSpeed = 5f;
+        public PlayerController instance;
 
         [SerializeField] GameObject model;
 
@@ -33,7 +34,6 @@ namespace Shmup
 
         [SerializeField]
         private InputActionReference shoot;
-
 
         private void OnEnable()
         {
@@ -84,6 +84,15 @@ namespace Shmup
             // Aplicar la rotacion
             transform.localEulerAngles = new Vector3(0f, newYRotation, 0f);
 
+        }
+
+        public bool ShootingTest()
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
+
+            Destroy(bullet, 1);
+            return true;
         }
     }
 }
