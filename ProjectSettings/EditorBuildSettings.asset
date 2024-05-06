@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenuCinematica.unity
+    guid: db49830dbbe61c6438d40f6a42357850
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/LobbyScene.unity
+    guid: 8ed0431ddd3805b46951bc024802a0d0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7e4aa6e38d7b11f40969e11a74e38ecc, type: 2}

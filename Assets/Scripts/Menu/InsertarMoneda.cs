@@ -73,7 +73,8 @@ namespace Shmup
 
         public void UnJugador()
         {
-            SceneManager.LoadScene("Level1");
+            GameManager.instance.njugadores = 1;
+            SceneManager.LoadScene("LobbyScene");
         }
     }
 }

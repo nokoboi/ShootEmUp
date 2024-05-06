@@ -35,6 +35,10 @@ namespace Shmup
         [SerializeField]
         private InputActionReference shoot;
 
+        //Eleccion Sprite Avion
+        public GameObject spriteAvion;
+
+
         private void OnEnable()
         {
             shoot.action.performed += Disparar;
@@ -56,7 +60,11 @@ namespace Shmup
         private void Start()
         {
             input = GetComponent<InputReader>();
+
+            spriteAvion.GetComponent<SpriteRenderer>().sprite = GameManager.instance.spriteJugador[GameManager.instance.naveElegida];
+
         }
+
 
         private void Update()
         {
@@ -94,5 +102,7 @@ namespace Shmup
             Destroy(bullet, 1);
             return true;
         }
+
+
     }
 }
