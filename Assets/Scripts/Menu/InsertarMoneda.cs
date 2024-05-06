@@ -19,14 +19,19 @@ namespace Shmup
         [SerializeField]
         private InputActionReference moneda;
 
+        [SerializeField] private InputActionReference playerSelection;
+        [SerializeField] private GameObject noImplementado;
+
         private void OnEnable()
         {
             moneda.action.performed += SumarMoneda;
+            playerSelection.action.performed += PlayerSelection;
         }
 
         private void OnDisable()
         {
             moneda.action.performed -= SumarMoneda;
+            playerSelection.action.performed -= PlayerSelection;
         }
 
         private void SumarMoneda(InputAction.CallbackContext context)
@@ -74,6 +79,31 @@ namespace Shmup
         public void UnJugador()
         {
             SceneManager.LoadScene("Level1");
+        }
+
+        public IEnumerator DosJugadores()
+        {
+            Debug.Log("Aún no está implementado.");
+            noImplementado.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            noImplementado.SetActive(false);
+        }
+
+        private void PlayerSelection(InputAction.CallbackContext context)
+        {
+            if (!context.ToString().Contains("Joystick  1"))
+            {
+                if (GameManager.instance.monedas >= 1)
+                {
+                    UnJugador();
+                }
+            } else
+            {
+                if (GameManager.instance.monedas >= 2)
+                {
+                    StartCoroutine(DosJugadores());
+                }
+            }
         }
     }
 }
