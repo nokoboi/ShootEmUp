@@ -38,6 +38,9 @@ namespace Shmup
         //Eleccion Sprite Avion
         public GameObject spriteAvion;
 
+        // Sonido de la bala
+        public AudioSource bala;
+
 
         private void OnEnable()
         {
@@ -53,6 +56,8 @@ namespace Shmup
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
+
+            bala.Play();
 
             Destroy(bullet, 1);
         }
