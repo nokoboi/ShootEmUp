@@ -34,6 +34,7 @@ namespace Shmup
 
         [SerializeField]
         private InputActionReference shoot;
+        [SerializeField] private InputActionReference move;
 
         //Eleccion Sprite Avion
         public GameObject spriteAvion;
@@ -54,12 +55,15 @@ namespace Shmup
 
         private void Disparar(InputAction.CallbackContext context)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
+            if (!context.ToString().Contains("Joystick  1"))
+            {
+                GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
 
-            bala.Play();
+                bala.Play();
 
-            Destroy(bullet, 1);
+                Destroy(bullet, 1);
+            }
         }
 
         private void Start()
@@ -73,7 +77,10 @@ namespace Shmup
 
         private void Update()
         {
-            targetPosition += new Vector3 (input.Move.x, input.Move.y, 0f) * (speed * Time.deltaTime);
+            if (!move.action.ToString().Contains("Joystick  1"))
+            {
+                targetPosition += new Vector3(input.Move.x, input.Move.y, 0f) * (speed * Time.deltaTime);
+            }
 
             // Calculamos la posicion maxima de X e Y para el jugador basadas en la vision de la camara
             var minPlayerX = cameraFollow.transform.position.x + minX;
@@ -99,6 +106,7 @@ namespace Shmup
 
         }
 
+        //Este es la funcion de test para comprobar que disparar funciona.
         public bool ShootingTest()
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
@@ -108,6 +116,14 @@ namespace Shmup
             return true;
         }
 
-
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("EnemyBullet"))
+            {
+                Destroy(other.gameObject);        // Destruye la bala enemiga
+                GameManager.instance.SubtractLife(1);
+                Debug.Log("Te ha dado un enemigo");
+            }
+        }
     }
 }

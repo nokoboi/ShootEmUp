@@ -12,6 +12,7 @@ TagManager:
   - Vidas2
   - Panel1J
   - Panel2J
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

@@ -14,19 +14,24 @@ namespace Shmup
         public TextMeshProUGUI textoMoneda2;
         public GameObject menuSeleccion;
 
+        public GameObject noImplementado;
+
         public bool limiteMonedas;
 
         [SerializeField]
         private InputActionReference moneda;
+        [SerializeField] private InputActionReference playerSelection;
 
         private void OnEnable()
         {
             moneda.action.performed += SumarMoneda;
+            playerSelection.action.performed += PlayerSelection;
         }
 
         private void OnDisable()
         {
             moneda.action.performed -= SumarMoneda;
+            playerSelection.action.performed -= PlayerSelection;
         }
 
         private void SumarMoneda(InputAction.CallbackContext context)
@@ -53,7 +58,7 @@ namespace Shmup
         private void Update()
         {
 
-            
+
             if (GameManager.instance.monedas > 0)
             {
                 textoMoneda1.fontSize = 24;
@@ -75,6 +80,36 @@ namespace Shmup
         {
             GameManager.instance.njugadores = 1;
             SceneManager.LoadScene("LobbyScene");
+        }
+
+        public void DosJugadoresMenu()
+        {
+            StartCoroutine(DosJugadores());
+        }
+
+        public IEnumerator DosJugadores()
+        {
+            Debug.Log("Aún no está implementado.");
+            noImplementado.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            noImplementado.SetActive(false);
+        }
+
+        private void PlayerSelection(InputAction.CallbackContext context)
+        {
+            if (!context.ToString().Contains("Joystick  1"))
+            {
+                if (GameManager.instance.monedas >= 1)
+                {
+                    UnJugador();
+                }
+            } else
+            {
+                if (GameManager.instance.monedas >= 2)
+                {
+                    StartCoroutine(DosJugadores());
+                }
+            }
         }
     }
 }
