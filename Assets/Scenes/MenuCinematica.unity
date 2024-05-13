@@ -470,7 +470,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 439.60992, y: 152.45284, z: -223.71135}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   noImplementado: {fileID: 154335005}
   limiteMonedas: 0
   moneda: {fileID: -5221582286059756567, guid: ac2541fdc1ccf044c866c16ef35a66f1, type: 3}
-  playerSelection: {fileID: -7774141102380737084, guid: ac2541fdc1ccf044c866c16ef35a66f1, type: 3}
+  playerSelection: {fileID: -5270625703051953219, guid: ac2541fdc1ccf044c866c16ef35a66f1, type: 3}
 --- !u!1 &858943008
 GameObject:
   m_ObjectHideFlags: 0
