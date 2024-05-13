@@ -42,9 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+<<<<<<< HEAD
                     "name": "Intro",
                     "type": "Button",
                     "id": "4e8fc879-59cd-48c0-be51-56a6b2433627",
+=======
+                    "name": "PlayerSelection",
+                    "type": "Button",
+                    "id": "2b1c5ebe-d9cb-4100-97f8-24498595a97e",
+>>>>>>> 104d189320a4ee0a0fff81764e62585e02522455
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -307,12 +313,32 @@
                 },
                 {
                     "name": "",
+<<<<<<< HEAD
                     "id": "3250cf33-69ae-4b99-87f9-2e19f4f206a1",
                     "path": "<Joystick>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Intro",
+=======
+                    "id": "690f5591-a90c-47cb-8569-323d7076be6e",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerSelection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec575672-92f3-463d-9b73-fb30f36b4deb",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerSelection",
+>>>>>>> 104d189320a4ee0a0fff81764e62585e02522455
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
