@@ -1002,7 +1002,7 @@ MonoBehaviour:
   noImplementado: {fileID: 154335005}
   limiteMonedas: 0
   moneda: {fileID: -5221582286059756567, guid: ac2541fdc1ccf044c866c16ef35a66f1, type: 3}
-  playerSelection: {fileID: -7774141102380737084, guid: ac2541fdc1ccf044c866c16ef35a66f1, type: 3}
+  playerSelection: {fileID: -5270625703051953219, guid: ac2541fdc1ccf044c866c16ef35a66f1, type: 3}
 --- !u!1 &858943008
 GameObject:
   m_ObjectHideFlags: 0

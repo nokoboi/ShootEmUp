@@ -108,4 +108,10 @@ public class LobbyController : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    public void Level1SceneButton()
+    {
+        GameManager.instance.naveElegida = currentIndex;
+        SceneManager.LoadScene("Level1");
+    }
+
 }

@@ -42,15 +42,18 @@
                     "initialStateCheck": false
                 },
                 {
-<<<<<<< HEAD
                     "name": "Intro",
                     "type": "Button",
                     "id": "4e8fc879-59cd-48c0-be51-56a6b2433627",
-=======
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "PlayerSelection",
                     "type": "Button",
-                    "id": "2b1c5ebe-d9cb-4100-97f8-24498595a97e",
->>>>>>> 104d189320a4ee0a0fff81764e62585e02522455
+                    "id": "898415a0-2d41-412f-91eb-58258d4649c1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -313,20 +316,12 @@
                 },
                 {
                     "name": "",
-<<<<<<< HEAD
                     "id": "3250cf33-69ae-4b99-87f9-2e19f4f206a1",
                     "path": "<Joystick>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Intro",
-=======
-                    "id": "690f5591-a90c-47cb-8569-323d7076be6e",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerSelection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -338,7 +333,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PlayerSelection",
->>>>>>> 104d189320a4ee0a0fff81764e62585e02522455
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96b1e844-850b-4347-9b47-d9c71665cdd3",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerSelection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
