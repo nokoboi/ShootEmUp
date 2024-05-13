@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         distance = Vector2.Distance(transform.position, GameObject.Find("Player").transform.position);
 
-        if (distance <= 2.4f && !firing)
+        if (distance <= 2.4f && !firing && !GameManager.instance.derrotado)
         {
             StartCoroutine(Shooting());
         }
@@ -40,20 +40,23 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Comprobar si el objeto con el que se colisionó es una bala
-        if (other.gameObject.tag == "Bullet")
+        if (!GameManager.instance.derrotado)
         {
-            StopCoroutine(Shooting());
-            // Destruir el objeto bala
-            Destroy(other.gameObject);  // Destruye la bala
-            Destroy(gameObject);        // Destruye este objeto
-            GameManager.instance.AddEnemys(puntosEnemigo);
-        }
-        if (other.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);        // Destruye este objeto
-            GameManager.instance.SubtractLife(1);
-            Debug.Log("Te ha dado un enemigo");
+            // Comprobar si el objeto con el que se colisionó es una bala
+            if (other.gameObject.tag == "Bullet")
+            {
+                StopCoroutine(Shooting());
+                // Destruir el objeto bala
+                Destroy(other.gameObject);  // Destruye la bala
+                Destroy(gameObject);        // Destruye este objeto
+                GameManager.instance.AddEnemys(puntosEnemigo);
+            }
+            if (other.gameObject.tag == "Player")
+            {
+                Destroy(gameObject);        // Destruye este objeto
+                GameManager.instance.SubtractLife(1);
+                Debug.Log("Te ha dado un enemigo");
+            }
         }
     }
 }

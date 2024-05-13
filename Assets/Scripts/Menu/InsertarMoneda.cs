@@ -78,6 +78,14 @@ namespace Shmup
 
         public void UnJugador()
         {
+            menuSeleccion.SetActive(false);
+
+            textoMoneda1.text = "Inserta moneda";
+            textoMoneda2.text = "Inserta moneda";
+
+            textoMoneda1.gameObject.SetActive(true);
+            textoMoneda2.gameObject.SetActive(true);
+
             GameManager.instance.njugadores = 1;
             SceneManager.LoadScene("LobbyScene");
         }

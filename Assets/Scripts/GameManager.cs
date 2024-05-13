@@ -20,6 +20,8 @@ namespace Shmup
         public int vidas;
         public Sprite[] spriteJugador;
         public int naveElegida = 0;
+        public bool derrotado = false;
+        public bool partidaIniciada = false;
         private void Awake()
         {
             if (instance == null)
@@ -82,7 +84,15 @@ namespace Shmup
             if (puntos2Text != null) puntos2Text.text = puntos.ToString();
             if (vidas1Text != null) vidas1Text.text = vidas.ToString();
             if (vidas2Text != null) vidas2Text.text = vidas.ToString();
-            
+
+            if (vidas <= 0 && partidaIniciada)
+            {
+                derrotado = true;
+            } else
+            {
+                derrotado = false;
+            }
+
         }
         public void AgregarMonedas(int cantidad)
         {

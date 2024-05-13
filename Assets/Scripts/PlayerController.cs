@@ -55,7 +55,7 @@ namespace Shmup
 
         private void Disparar(InputAction.CallbackContext context)
         {
-            if (!context.ToString().Contains("Joystick  1"))
+            if (!context.ToString().Contains("Joystick  1") && !GameManager.instance.derrotado)
             {
                 GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
                 bullet.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
@@ -77,7 +77,7 @@ namespace Shmup
 
         private void Update()
         {
-            if (!move.action.ToString().Contains("Joystick  1"))
+            if (!move.action.ToString().Contains("Joystick  1") && !GameManager.instance.derrotado)
             {
                 targetPosition += new Vector3(input.Move.x, input.Move.y, 0f) * (speed * Time.deltaTime);
             }
@@ -118,7 +118,7 @@ namespace Shmup
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("EnemyBullet"))
+            if (other.CompareTag("EnemyBullet") && !GameManager.instance.derrotado)
             {
                 Destroy(other.gameObject);        // Destruye la bala enemiga
                 GameManager.instance.SubtractLife(1);
