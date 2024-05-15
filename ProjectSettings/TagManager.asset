@@ -13,8 +13,7 @@ TagManager:
   - Panel1J
   - Panel2J
   - EnemyBullet
-  - Boss
-  - Colision
+  - DeathCanvas
   layers:
   - Default
   - TransparentFX
