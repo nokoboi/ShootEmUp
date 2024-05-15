@@ -93,6 +93,7 @@ public class DeathSceneController : MonoBehaviour
             //GameManager.instance.monedas--;
             GameManager.instance.vidas = 1;
             gameObject.SetActive(false);
+            GameManager.instance.StartInvulnerability();
         }
     }
 

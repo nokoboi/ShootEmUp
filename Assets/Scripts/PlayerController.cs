@@ -118,7 +118,7 @@ namespace Shmup
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("EnemyBullet") && !GameManager.instance.derrotado)
+            if (other.CompareTag("EnemyBullet") && !GameManager.instance.derrotado && !GameManager.instance.invulnerable)
             {
                 Destroy(other.gameObject);        // Destruye la bala enemiga
                 GameManager.instance.SubtractLife(1);

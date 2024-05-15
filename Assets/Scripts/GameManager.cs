@@ -22,6 +22,7 @@ namespace Shmup
         public int naveElegida = 0;
         public bool derrotado = false;
         public bool partidaIniciada = false;
+        public bool invulnerable = false;
         private void Awake()
         {
             if (instance == null)
@@ -115,6 +116,18 @@ namespace Shmup
             vidas -= life;
             Debug.Log("Se han restado " + life + " vidas.");
             Debug.Log("Te quedan: " + vidas);
+        }
+
+        public IEnumerator Invulnerability()
+        {
+            invulnerable = true;
+            yield return new WaitForSeconds(2f);
+            invulnerable = false;
+        }
+
+        public void StartInvulnerability()
+        {
+            StartCoroutine(Invulnerability());
         }
     }
 }

@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
         if (!GameManager.instance.derrotado)
         {
             // Comprobar si el objeto con el que se colisionó es una bala
-            if (other.gameObject.tag == "Bullet")
+            if (other.gameObject.tag == "Bullet" && !GameManager.instance.invulnerable)
             {
                 StopCoroutine(Shooting());
                 // Destruir el objeto bala
@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
                 Destroy(gameObject);        // Destruye este objeto
                 GameManager.instance.AddEnemys(puntosEnemigo);
             }
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player" && !GameManager.instance.invulnerable)
             {
                 Destroy(gameObject);        // Destruye este objeto
                 GameManager.instance.SubtractLife(1);
