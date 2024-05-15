@@ -20,14 +20,14 @@ namespace Shmup
         public int vidas;
         public Sprite[] spriteJugador;
         public int naveElegida = 0;
-<<<<<<< HEAD
+
         public int vidaBoss = 20;
 
-=======
+
         public bool derrotado = false;
         public bool partidaIniciada = false;
         public bool invulnerable = false;
->>>>>>> 2c3e43a6b195a147dbea9daf7487fb8914a85236
+
         private void Awake()
         {
             if (instance == null)
@@ -123,13 +123,13 @@ namespace Shmup
             Debug.Log("Te quedan: " + vidas);
         }
 
-<<<<<<< HEAD
         public void SubtractLifeBoss(int life)
         {
             vidaBoss -= life;
             Debug.Log("Se han restado " + life + " vidas.");
             Debug.Log("Te quedan: " + vidas);
-=======
+        }
+
         public IEnumerator Invulnerability()
         {
             invulnerable = true;
@@ -140,7 +140,7 @@ namespace Shmup
         public void StartInvulnerability()
         {
             StartCoroutine(Invulnerability());
->>>>>>> 2c3e43a6b195a147dbea9daf7487fb8914a85236
+
         }
     }
 }
