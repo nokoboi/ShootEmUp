@@ -88,8 +88,8 @@ namespace Shmup
         {
             if (puntos1Text != null) puntos1Text.text = puntos.ToString();
             if (puntos2Text != null) puntos2Text.text = puntos.ToString();
-            if (vidas1Text != null) vidas1Text.text = vidas.ToString();
-            if (vidas2Text != null) vidas2Text.text = vidas.ToString();
+            if (vidas1Text != null && vidas >= 0) vidas1Text.text = vidas.ToString();
+            if (vidas2Text != null && vidas >= 0) vidas2Text.text = vidas.ToString();
 
             if (vidas <= 0 && partidaIniciada)
             {

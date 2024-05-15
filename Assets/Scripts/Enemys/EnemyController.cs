@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
         if (!GameManager.instance.derrotado)
         {
             // Comprobar si el objeto con el que se colisionó es una bala
-            if (other.gameObject.tag == "Bullet" && !GameManager.instance.invulnerable)
+            if (other.gameObject.tag == "Bullet")
             {
                 StopCoroutine(Shooting());
                 // Destruir el objeto bala

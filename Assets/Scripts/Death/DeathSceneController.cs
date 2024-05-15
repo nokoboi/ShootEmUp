@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathSceneController : MonoBehaviour
 {
-    [SerializeField] private GameObject deathCanvas;
+    [SerializeField] private GameObject deathCanvas, alertaMoneda;
     private GameObject player;
     [SerializeField] private TextMeshProUGUI[] countdown;
     [SerializeField] private TextMeshProUGUI[] texto;
@@ -15,6 +15,7 @@ public class DeathSceneController : MonoBehaviour
     [SerializeField] private InputActionReference moneda;
     private bool flashing = false;
     private bool returningToMain = false;
+    [SerializeField] private CameraController cameraController;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,7 @@ public class DeathSceneController : MonoBehaviour
 
         if (countdownFloat > 0f)
         {
+            cameraController.enabled = false;
             StartCoroutine(PlayerFlashing());
             countdownFloat -= Time.deltaTime;
             countdown[0].text = ((int)countdownFloat).ToString();
@@ -56,9 +58,12 @@ public class DeathSceneController : MonoBehaviour
             returningToMain = true;
             countdown[0].text = "";
             countdown[1].text = "";
+            alertaMoneda.SetActive(false);
             texto[0].text = "FIN DEL JUEGO";
             texto[1].text = "FIN DEL JUEGO";
             Debug.Log("Fin del juego");
+            GameManager.instance.monedas = 0;
+            GameManager.instance.puntos = 0;
             yield return new WaitForSeconds(3f);
             GameManager.instance.partidaIniciada = false;
             GameManager.instance.vidas = 1;
@@ -85,12 +90,12 @@ public class DeathSceneController : MonoBehaviour
     {
         if (!returningToMain)
         {
+            cameraController.enabled = true;
             StopCoroutine(EndGame());
             StopCoroutine(PlayerFlashing());
             player.GetComponentInChildren<SpriteRenderer>().enabled = true;
             flashing = false;
             countdownFloat = 11f;
-            //GameManager.instance.monedas--;
             GameManager.instance.vidas = 1;
             gameObject.SetActive(false);
             GameManager.instance.StartInvulnerability();

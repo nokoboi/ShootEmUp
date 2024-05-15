@@ -112,6 +112,7 @@ public class LobbyController : MonoBehaviour
     public void Level1SceneButton()
     {
         GameManager.instance.naveElegida = currentIndex;
+        GameManager.instance.partidaIniciada = true;
         SceneManager.LoadScene("Level1");
     }
 

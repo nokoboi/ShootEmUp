@@ -36,23 +36,8 @@ namespace Shmup
 
         private void SumarMoneda(InputAction.CallbackContext context)
         {
-            // Detectar si se presiona la barra espaciadora
-            if (!limiteMonedas/* && Input.GetKeyDown(KeyCode.Space)*/)
-            {
-
-                if (GameManager.instance.monedas < 2)
-                {
-                    // Llamar al método AgregarMonedas del GameManager para agregar una moneda
-                    GameManager.instance.AgregarMonedas(1);
-                }
-
-                // Para que pare una vez tenga 2 monedas y aunque siga pulsando espacio no siga sumando monedas
-                if (GameManager.instance.monedas >= 2)
-                {
-                    limiteMonedas = true;
-                }
-
-            }
+            // Llamar al método AgregarMonedas del GameManager para agregar una moneda
+            GameManager.instance.AgregarMonedas(1);
         }
 
         private void Update()
@@ -74,17 +59,20 @@ namespace Shmup
 
                 menuSeleccion.SetActive(true);
             }
+
+            if (GameManager.instance.monedas <= 0)
+            {
+                textoMoneda1.text = "Inserta moneda";
+                textoMoneda2.text = "Inserta moneda";
+
+                textoMoneda1.gameObject.SetActive(true);
+                textoMoneda2.gameObject.SetActive(true);
+            }
         }
 
         public void UnJugador()
         {
             menuSeleccion.SetActive(false);
-
-            textoMoneda1.text = "Inserta moneda";
-            textoMoneda2.text = "Inserta moneda";
-
-            textoMoneda1.gameObject.SetActive(true);
-            textoMoneda2.gameObject.SetActive(true);
 
             GameManager.instance.njugadores = 1;
             SceneManager.LoadScene("LobbyScene");
