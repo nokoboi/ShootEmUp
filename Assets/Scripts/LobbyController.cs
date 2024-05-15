@@ -1,6 +1,4 @@
 using Shmup;
-using System.Collections;
-using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -78,7 +76,7 @@ public class LobbyController : MonoBehaviour
             // Incrementa el índice y si es igual al tamaño del array, vuelve a 0
             currentIndex = (currentIndex + 1) % GameManager.instance.spriteJugador.Length;
             imagenAvion.sprite = GameManager.instance.spriteJugador[currentIndex]; // Actualiza el sprite mostrado
-            
+
         }
 
     }
@@ -96,7 +94,7 @@ public class LobbyController : MonoBehaviour
                 currentIndex = GameManager.instance.spriteJugador.Length - 1;
             }
             imagenAvion.sprite = GameManager.instance.spriteJugador[currentIndex]; // Actualiza el sprite mostrado
-            
+
         }
 
 
