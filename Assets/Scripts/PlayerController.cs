@@ -41,6 +41,11 @@ namespace Shmup
 
         // Sonido de la bala
         public AudioSource bala;
+        public AudioSource sonidoBoss;
+        public AudioSource level1;
+
+        //script camera
+        public MonoBehaviour cameraScript;
 
 
         private void OnEnable()
@@ -123,6 +128,14 @@ namespace Shmup
                 Destroy(other.gameObject);        // Destruye la bala enemiga
                 GameManager.instance.SubtractLife(1);
                 Debug.Log("Te ha dado un enemigo");
+            }
+
+            if (other.CompareTag("Colision"))
+            {
+                Debug.Log("saltacolision");
+                level1.Stop();
+                sonidoBoss.Play();
+                cameraScript.enabled = false;
             }
         }
     }

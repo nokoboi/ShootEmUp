@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     private bool firing = false;
     public float distance;
 
+    public int vidaboss;
+
     // Start is called before the first frame update
     void Start()
     {

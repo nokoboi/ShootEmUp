@@ -500,6 +500,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cda1cec8d55a48948b764466a649bd2a, type: 3}
   - {fileID: 21300000, guid: 56ae2e09d2e35b141af58f59637cb554, type: 3}
   naveElegida: 0
+  vidaBoss: 10
 --- !u!1 &246059725
 GameObject:
   m_ObjectHideFlags: 0

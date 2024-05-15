@@ -20,6 +20,8 @@ namespace Shmup
         public int vidas;
         public Sprite[] spriteJugador;
         public int naveElegida = 0;
+        public int vidaBoss = 20;
+
         private void Awake()
         {
             if (instance == null)
@@ -103,6 +105,13 @@ namespace Shmup
         {
             if (life < 0) return; // Prevenir restar una cantidad negativa de vidas
             vidas -= life;
+            Debug.Log("Se han restado " + life + " vidas.");
+            Debug.Log("Te quedan: " + vidas);
+        }
+
+        public void SubtractLifeBoss(int life)
+        {
+            vidaBoss -= life;
             Debug.Log("Se han restado " + life + " vidas.");
             Debug.Log("Te quedan: " + vidas);
         }
